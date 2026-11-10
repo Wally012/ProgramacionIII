@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en-es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formilario de contacto</title>
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+    <div class="barra-superior">
+        <span id="nombreAutor">Alisson Riaño Gonzalez</span>
+    </div>
+
+    <main class="contenedor">
+        <section class="tarjetas">
+            <header class="encabezado">
+                <h1>Formulario de contacto</h1>
+                <p>Completa los campos para enviar tu mensaje.</p>
+            </header>
+
+            <form id="formularioContacto" action="php/interconexion.php" method="POST">
+                <div class="campo">
+                    <label for="nombre">Nombre Completo *</label>
+                    <input type="text" id="nombre" name="nombre_completo" maxlength="120"
+                    autocomplete="name" required>
+                </div>
+
+                <div class="campo">
+                    <label for="correo">Correo Electronico *</label>
+                    <input type="email" id="correo" name="correo" maxlength="190" autocomplete="email" required>
+                </div>
+
+                <div class="campo">
+                    <label for="telefono">Telefono</label>
+                    <input type="tel" id="telefono" name="telefono" maxlength="30" autocomplete="tel" required>
+                </div>
+
+                
+                <div class="campo">
+                    <label for="asunto">Asunto</label>
+                    <select id="asunto" name="asunto" required>
+                    <option value="">Seleccione una opcion</option>
+                    <option value="Consulta General">Consulta General</option>
+                    <option value="Soporte Tecnico">Soporte Tecnico</option>
+                    <option value="Solicitud de Informacion">Solicitud de Informacion</option>
+                    <option value="Otro">Otro</option>
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label for="mensaje">Mensaje *</label>
+                    <textarea id="mensaje"  name="mensaje" rows="5" maxlength="3000" required></textarea>
+                </div>
+
+                <div class="campo terminos">
+                    <p class="terminos-titulo" id="terminosTitulo">Términos y Condiciones</p>
+                    <div class="terminos-caja" role="region" aria-labelledby="terminosTitulo" tabindex="0">
+                        <h2>Parte I. Cláusulas serias</h2>
+                        <ol>
+                            <li>
+                                <strong>Tratamiento de datos personales.</strong>
+                                Al enviar este formulario, aceptas que los datos compartidos con la plataforma
+                                serán tratados de acuerdo con la Ley 1581 de 2012 (Habeas Data) y sus decretos
+                                reglamentarios. Como titular, podrás conocer, actualizar, rectificar y solicitar la
+                                supresión de tus datos.
+                            </li>
+                            <li>
+                                <strong>Vínculo con la ETITC.</strong>
+                                Aceptas que eres estudiante o profesor de la ETITC. En caso de no serlo, aceptas
+                                que te matricularás próximamente.
+                            </li>
+                        </ol>
+
+                        <h2>Parte II. Cláusulas de buen humor <small>(sin validez jurídica, solo para sonreír)</small></h2>
+                        <ol start="3">
+                            <li>
+                                <strong>La mentira más grande de internet.</strong>
+                                Declaras que leíste estos términos completos, con atención y sin hacer scroll
+                                rápido hasta el final. Nadie te cree, pero igual lo anotamos.
+                            </li>
+                            <li>
+                                <strong>Cláusula del primogénito.</strong>
+                                Cedes a esta plataforma los derechos sobre tu primogénito. Si no tienes hijos, aceptamos
+                                tu mascota o, en su defecto, tu cuenta de Netflix compartida.
+                            </li>
+                            <li>
+                                <strong>Uso responsable (versión iTunes).</strong>
+                                Te comprometes a no usar este formulario para diseñar ni fabricar misiles nucleares,
+                                armas químicas ni, peor aún, para enviar cadenas de WhatsApp.
+                            </li>
+                            <li>
+                                <strong>Política de galletas.</strong>
+                                Esta página usa cookies. Las de chocolate se reciben con gusto y en persona.
+                            </li>
+                            <li>
+                                <strong>Actualizaciones estilo Windows.</strong>
+                                El envío de tu mensaje puede tardar entre 2 segundos y 3 años.
+                                Durante ese tiempo, por favor no apagues el computador.
+                            </li>
+                            <li>
+                                <strong>Términos sujetos a cambios.</strong>
+                                Estos términos pueden cambiar sin previo aviso, igual que las fechas de entrega,
+                                el horario de clases y la contraseña del wifi.
+                            </li>
+                            <li>
+                                <strong>Funciona en mi máquina.</strong>
+                                Si algo falla, el desarrollador declara que en su XAMPP funcionaba perfectamente
+                                hace cinco minutos y que seguramente fue culpa de la luna.
+                            </li>
+                            <li>
+                                <strong>Visto en WhatsApp.</strong>
+                                Una vez enviado, el mensaje no se puede retirar. Se leerá, se dejará en
+                                visto y se responderá cuando el universo lo permita.
+                            </li>
+                            <li>
+                                <strong>Mayoría de edad.</strong>
+                                Declaras tener 18 años o más, o haberle pedido permiso a tu mamá,
+                                lo que sea más difícil de conseguir.
+                            </li>
+                            <li>
+                                <strong>Fuerza mayor.</strong>
+                                No nos hacemos responsables por retrasos causados por parciales sorpresa,
+                                el internet de la ETITC, zombies o por Mercurio retrógrado.
+                            </li>
+                        </ol>
+                    </div>
+
+                    <label for="acepta_terminos" class="terminos-aceptar">
+                        <input type="checkbox" id="acepta_terminos" name="acepta_terminos" value="1" required>
+                        He leído y acepto los términos y condiciones. *
+                    </label>
+                </div>
+
+                <div class="campo consentimiento">
+                    <label for="acepta_tratamiento">
+                        <input type="checkbox" id="acepta_tratamiento" name="acepta_tratamiento"
+                        value="1" required>
+                        He leido el aviso de provacidad y acepto el tratamiento de mis datos personales. *
+                    </label>
+                </div>
+
+                <p id="mensajeEstado" class="mensaje-estado" role="status" aria-live="polite"></p>
+
+                <div class="acciones">
+                    <button type="submit" id="botonEnviar">Enviar Mensajes</button>
+
+                    <button type="reset" class="boton-secundario">Limpiar</button>
+                </div>
+
+                <p class="nota">Los campos marcados con * son <strong></strong></p>
+            </form>
+        </section>
+    </main>
+
+    <script src="Javascript/script.js" defer></script>
+</body>
+</html>

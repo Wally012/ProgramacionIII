@@ -1,0 +1,399 @@
+:root{
+    --primary-color: #6366F1;
+    --secondary-color: #4338CA;
+    --accent-color: #A78BFA;
+    --light-color: #F5F3FF;
+    --dark-color: #1E1B4B;
+    --warning-color: #F59E0B;
+    --border-color: #DDD6FE;   
+    
+    --border-radius: 8px;
+    --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+/*Estilos generales*/
+
+*{
+    margin: 0;
+    padding: 0;
+/*hace que el padding y el border, se incluyann en el ancho y alto  total DE LOS ELEMENTOS que facilitan el diseño responsivo*/
+
+    box-sizing: border-box;
+}
+
+/*Estilos para el cuerpo de la pagina*/
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--dark-color);
+    background-color: #f0f2f5;
+    padding: 20px;
+}
+
+/*Contenedor principal*/
+
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+
+
+}
+
+/*Estilos aplicados al encabezado*/
+
+.header{
+    text-align: center;
+    padding: 2rem 0;
+    margin-bottom: 2rem;
+
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+/*TItulo Principal*/
+
+header h1{
+    font-size: 2.5rem;
+    margin-bottom:  0.5rem;
+
+}
+
+/*Parrafo de encabezado*/
+
+header p{
+    font-size:  1.2rem; /*Tamaño de fuente*/
+    max-width: 800px; /*Ancho maximo para mayor legibilidad*/
+    margin: 0 auto; /*Centrado horizontal*/
+    opacity: 0.9;/*Ligera trasparencia para texto secundario*/
+}
+
+
+/*Navegacion*/
+
+
+nav{
+    background-color: white;  /*Fondo blanco*/
+    border-radius: var(--border-radius); /*Bordes redondeados*/
+    box-shadow: var(--box-shadow); /*Sobra*/
+    margin-bottom: 2rem; /*Espaciado inferior*/
+    padding: 1rem; /*Espaciado interno*/
+}
+
+
+/*Lista de enlaces de navegacion*/
+
+.nav-links {
+    display: flex; /*Uso del flex bos para diseño flexible*/
+    justify-content: center; /*Centra horizontalmente los elementos*/
+    list-style: none; /*elimine las viñetas*/
+    flex-wrap: wrap; /*Permite que los elementos se embueban en multiples lineas*/
+
+ }
+
+ /*Elementos de la lista de navegacion*/
+
+ .nav-links li {
+    margin: 0 10px; /*margen horizontal entre dos elementos*/
+ }
+
+ /*enlaces de navegacion*/
+
+ .nav-links a {
+    text-decoration:  none; /*elimina el subrayado*/
+    color: var(--dark-color);
+    padding: 8px 16px; /*Espaciado interno*/
+    border-radius: 20px; /*Bordes muy redondeados (formato de capsula)*/
+    transition: var(--transition); /*Transicion suave para efectos de hoveer*/
+    font-weight:  500; /*Grosor de la fuente (medium)*/
+
+ }
+
+
+ /*Efectos de los enlaces*/
+
+ .nav-links a:hover,
+ .nav-links a:active{
+    background-color: var(--primary-color); /*Cambia el color del fondo*/
+    color: white; /*Cambia el color del texto*/
+ }
+
+ /*Estilos para las targetas que muestran cada propiedad*/
+
+ .properties-container{
+    display: grid; /*Usa CSS grid para el diseño de cuadriculas*/
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); /**/
+    gap: 2rem; /*espacio entre targetas*/
+    margin-bottom: 3rem; /*Espaciado interior*/
+
+ }
+
+ /*Targeta individual*/
+
+ .property-cad {
+    background-color: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    overflow: hidden; /*Oculatar cualquier contenido que sobresalga*/
+    transition: var(--transition);
+
+ }
+
+
+ /*Efectos de la targeta al pasar el mouse*/
+
+ .property-crad:hover {
+    transform: traslatey(-5px);
+    box-shadow: 0 8pz 20px rgba(0, 0, 0, 0.15);
+ }
+
+ .property-header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1rem;
+ }
+
+
+ /*Espaciado */
+
+ .property-header h2{
+    font-size:  1.5rem;
+    margin: 0;
+ }
+
+ /*Cuerpo de la targeta*/
+
+ .property-body {
+    padding: 1.5rem;
+
+ }
+
+
+ /*Seccion dentro de la trageta*/
+ .property-section {
+    margin-bottom: 1.5rem; /*Espaciado interior entre secciones*/
+ }
+
+ /*Titulo de la secion*/
+ .property-section h3{
+    color: var(--secondary-color);
+    margin-bottom: 0.5rem;
+
+ }
+
+
+ .property-section h3 i {
+    font-size:  1rem;
+
+ }
+
+ /*Lista de atributos*/
+
+ .attributes-list{
+    list-style-type: none; /*Eliminar las biñetas*/
+    padding-left: 1rem;
+ }
+
+ /*Elementos de la lista*/
+
+ .attributes-list li{
+    margin-bottom: 0.5rem;
+    position: relative;
+    padding-left: 20px;
+ }
+
+ /*Marcador personalizado ´para los elementos de la lista*/
+
+ .attributes-list li::before{
+    content: "";
+    color:var(--accent-color);
+    position: absolute; /*Posicionamiento absoluto con respecto a li*/
+    left: 0; /*Inicia alineado a la izquierda*/
+    font-size: 1.2rem;
+ }
+
+
+ /*Vloque de codigo*/
+
+ pre{
+    background-color: #2b2b2b; /*Fondo oscuro para el contraste*/
+    color: #f8f8f2;
+    padding:  1rem;
+    border-radius: var(--border-radius);
+    overflow: auto; /*Permite el desplazamiento orizontal del codigo largo*/
+    font-size: 0.9rem;
+    line-height: 1.4; /*Altura de la linea pára mejor legibilidad*/
+}
+
+/*Contendor de ejemplo del codigo*/
+
+.code-example{
+    margin:  1rem 0;
+}
+
+/*Ejemplo visual*/
+.visual-example {
+    background-color: var(--light-color);
+    border-left: 4px solid var(--accent-color);
+    padding: 1rem;
+    border-radius: 0 var(--border-color), var(--border-radius);
+}
+
+
+.visual-example h4{
+    margin-bottom: 0.5rem;
+    color:  var(--secondary-color);
+}
+
+
+/**/
+
+footer{
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--border-radius);
+    margin-top: 2rem;
+}
+
+/*Diseño responsive
+
+Media Query para adaptar estilos en dispositivos mas pequeños*/
+
+@media(max-width: 768px){
+    /*Cambia a una sola columna en dispositivos moviles*/
+
+    properties-container{
+        grid-template-columns: 1fr;
+    }
+
+    /*Cambia la nevegacion a columnas*/
+    .nav-links{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-links li{
+        margin: 5px 0;
+    }
+}
+
+
+/*Ejemplos especificos para estilos con display:flex*/
+
+.example-flex{
+    display: flex;
+    gap: 10px;
+    margin: 15px 0;
+    padding: 15px;
+    background-color: #e9ecef;
+    border-radius: var(--border-radius);
+}
+
+
+.example-item{
+    padding: 15px;
+    background-color:  var(--accent-color);
+    color: white;
+    border-radius: 4px;
+}
+
+
+.example-grid {
+    display: grid;
+    grid-template-columns: repeat(3 1fr); /*Tres columnas de igual tamaño*/
+    gap: 10px; /*Espaciado entre celdas*/
+    margin: 15px 0;
+}
+
+/*Elementos dentro del grid*/
+
+.grid-item{
+    padding: 15px;
+    background-color: var(--secondary-color);
+    text-align: center;
+    border-radius: 4px;
+}
+
+
+.example-position {
+    position: relative;
+    height: 150px; /*Altura fija y conteto de posicionamiento*/
+    background-color: #e9ecef;
+    border-radius: var(--border-radius);
+    margin: 15px 0;
+}
+
+
+/*Elemento con posicion absoluta*/
+
+.positioned-item {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    padding: 10px;
+    background-color: var(--warning-color);
+    color: white;
+    border-radius: 4px;
+}
+
+/*Ejemplo de animacion*/
+
+.example-animation{
+    width: 50px;
+    height: 50px;
+    background-color: var(--primary-color);
+    border-radius: 50%; /*Forma circular*/
+    margin: 15px 0;
+    /*Animacion pulse de 2 segundos*/
+
+    animation: pulse 2s infinite;
+}
+
+/*Definicion de la animacionpulse*/
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.95); /*Tabla inicial*/
+        box-shadow: 0 0 0 10px rgb(67, 97, 238, 0.7); /*Sombreado inicial*/
+    }
+
+    70% {
+        transform: scale(1); /*Tabla media*/
+        box-shadow: 0 0 0 10px rgb(67, 97, 238, 0); /* Sombra que se expande*/
+    }
+
+    100%{
+        transform: scale(0.95); /*Vuleve a la escala inicial*/
+        box-shadow: 0 0 0 10px rgb(67, 97, 238, 0.7); 
+    }
+}
+
+
+/*Ejemplo de transformacion*/
+
+.example-transform{
+    width: 80px;
+    height: 80px;
+    background-color: var(--accent-color);
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border-radius: 8px;
+
+    transform: perspective(500px) rotateX(10deg) rotateY(15deg);
+    transition: transform 0.5s;
+}
+
+
+.example-transform:hover{
+    transform: perspective(500px) rotateX(10deg) rotateY(15deg);
+}
+
+
+
+
+

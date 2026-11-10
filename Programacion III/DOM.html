@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java propiedades</title>
+    <link rel="stylesheet" href="css/style_3.css">
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+</head>
+<body>
+    <div class="container">
+        <header class="site-header">
+            <h1>JavaScript para programacion III</h1>
+            <P>Guia proguresiva: logica -> DOM -> Eventos-> Consola -> jquery</P>
+        </header>
+        <!--Navegacion-->
+        <nav class="main-nav" aria-label="Navegacion principal">
+            <ul>
+                <li><a href="#logica">Logica</a></li>
+                <li><a href="#dom">Manipulacion del DOM</a></li>
+                <li><a href="#eventos">Eventlisteners</a></li>
+                <li><a href="#consola">Consola</a></li>
+                <li><a href="#jquery">JQuery</a></li>
+                <li><a href="#retos">Retos</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <section class="card" id="logica">
+                <header>
+                    <h2>🧠 1.Logica basica de JavaScript</h2>
+                </header>
+
+            
+                <div class="content">
+                    <div class="subsection">
+                        <h3>1.1 Variables y tipos de datos</h3>
+                        <p>JavaScriptes un lenguaje <strong>debilmente tipado</strong>.
+                        Existen tres formas de declarar variables: </p>
+                        <ul>
+                            <li><code>let</code>-> Variable re asignable (Uso recomendado)</li> 
+                            <li><code>const</code>-> Constante (No reasignable)</li> 
+                            <li><code>var</code>-> Forma antigua para declarar variables (Eviatr en codigo nuevo)</li> 
+                        </ul>
+                        <pre><code> 
+                            <span class="cmt">//Tipos primitivos</span>
+                            <span class="kw">let</span> Nombre = <span class="str">"Lola"</span>;       <span class="cmt">// String</span>
+                            <span class="kw">let</span> Edad = <span class="num">"21"</span>;       <span class="cmt">// Number</span>
+                            <span class="kw">let</span> Activo = <span class="kw">true</span>;       <span class="cmt">// Boolean</span>
+                            <span class="kw">let</span> Nada = <span class="kw">null</span>;       <span class="cmt">// Null</span>
+                            <span class="kw">let</span> Indefinido;       <span class="cmt">Undefined</span>
+
+                            <span class="cmt">Tipos compuestos</span>
+                            <span class="kw">const</span> notas = [<span class="num"4.5></span>, <span class="num">3.8</span>, <span class="num">5.0</span>]; <span class="cmt">//Array</span>
+                            <span class="kw">const</span> estudiante = {            <span class="cmt"> //objeto</span>
+                        nombre: <span class="str">"Ana"</span>,
+                        edad: <span class="num">21</span> 
+                        };
+                        </code></pre>
+
+
+                    </div>
+                    <div class="subsection">
+                        <h3>1.2 Operadores y condicionales</h3>
+                        <pre><code><span class="kx">const</span> a = <span class="num">10</span>, b= <span class="num">3</span>;
+                            <span class="cmt">//Aritmeticos</span>
+                            a + b <span class="cmt">// 13</span>
+                            <span class="cmt">// 1</span>
+                            a%b <span class="cmt">// 1 (modulo)</span>
+
+                            <span class="cmt">// Comparacion Estricta (==) vs debil (==)</span>
+                            <span class="str">"5"</span> == <span class="num">5</span>          <span class="cmt">// true (comvierte tipos)</span>
+                            <span class="str">"5"</span> === <span class="num">5</span>          <span class="cmt">// false (estructo: deben de ser iguales)</span>
+
+                            <span class="cmt"> //condicional</span>
+                            <span class="kw">if</span> (a > b && b > <span class="num">0</span>)  {
+                                console.<span class="fn">log</span> ( <span class="str"> a es mayor y b positivo</span>  )
+                            } <span class="kw">else if</span> (a===b) {
+                                console.<span class="fn">log</span> ( <span class="str"> otro caso</span>  )
+                                <span class="kw">else</span> {
+                                    console.<span class="fn">log</span> ( <span class="str"> otro caso</span>  )
+                                }
+
+                            }
+
+                        </code></pre>
+                    </div>
+                    
+                    <div class="subsection">
+                        <h3>1.3 Bucles y funciones</h3>
+                        <pre><code><span class="cmt">// Bucle clasico</span>
+                        <span class="kw">for</span> ( <span class="kw">let</span> i = <span class="num">0</span> i &lt; <span class="num">5</span>; i++) {
+                            console.<span class="fn">log</span> (i);
+                        }  
+
+
+                        <span class="cmt">//Recorrer un array con forEach</span>
+                        [ <span class="num">10</span>, <span class="num">20</span>, <span class="num">30</span> ].<span class="fn">ForEach</span> (n => console.<span class="fn">log</span>(n));
+
+                        <span class="cmt">//Funcion clasica</span>
+                        <span class="kw">funcion</span> <span class="fn">sumr</span> (x,y) {
+                            <span class="kw">returned</span> x + y;
+                        }
+
+                        <span class="cmt">// Funcion Fñecha (arrow funcion)</span>
+                        <span class="kw">const</span> <span class="fn">restar</span> = (x,y) => x -y;
+
+                        console.<span class="fn">log</span> ( <span class="fn">sumar</span> ( <span class="num">2</span>, <span class="num">3</span>)); <span class="cmt">// 5</span>
+                        console.<span class="fn">log</span> ( <span class="fn">sumar</span> ( <span class="num">10</span>, <span class="num">4</span>)); <span class="cmt">// 6</span>
+                        </code></pre>
+                    </div>
+                    
+                    <div class="demo-box">
+                        <h4>Demo interactivo: Calculadoras de promedios</h4>
+                        <p class="hint">Ingrese las 3 notas obtenidas para calcular el promedio</p>
+                        <input type="number" id="nota1" placeholder="nota1" min="0" max="5" step="0.5">
+                        <input type="number" id="nota2" placeholder="nota2" min="0" max="5" step="0.5">
+                        <input type="number" id="nota3" placeholder="nota3" min="0" max="5" step="0.5">
+                        <button id="btnPromedio">Calcular Promedio</button>
+                        <div class="output" id="resultadoPromedio">Esperando datos...</div>
+                
+                    </div>
+
+                </div>
+            </section>
+
+            <!--Seccion 2: Manipulacion del DOM (Document object Model)-->
+            <section class="card" id="dom">
+                <header>
+                    <h2> 🌳</h2>
+                </header>
+                <div class="subsection">
+                    <h3>2.1 ¿Que es el DOM?</h3>
+                    <P>El <strong>DOM</strong> (Document Objet Model) es la representacion en forma de arbol del html
+                    JavaScript puede leer y modificar ese arbol en tiempo real.</P>
+                    <p>Metodos clave para <strong>selecciona elementos</strong>:</p>
+                    <ul>
+                        <li><code>document.getElementById("id")</code></li>
+                        <li><code>document.querySelector(".clase")</code> -> El primero que coincida.</li>
+                        <li><code>document.querySelectorAll(".clase")</code> -> todos (NodeList)</li>
+                    </ul>
+                </div>
+
+                <div class="subsection">
+                    <h3>2.2 Modificar contenido y estilos</h3>
+                    <pre><code>
+                        <span class="kw"></span>
+                        <span class="cmt">//cambiar texto</span>
+                        .titulo.textContent = <span class="str">Nuevo titulo</span>
+                        titulo.innetHTML =<span class="str">&lt;em&lt;Con HTML&lt;/em&lt;</span>
+                        <span class="cmt">//Cambiar estilos</span>
+                        titulo.sryle.color = <span class="str">#4361ee</span>
+
+                        <span class="cmt">//Añadir /quitar clases</span>
+                        titulo.clasList<span class="fn">add</span>( <span class="str">destacados</span> );
+                        titulo.classList<span class="fn">remove</span>( <span class="str">destacados</span> );
+                    </code></pre>
+                </div>
+
+                <div class="demo-box">
+                    <h4>Demo: Modificar elementos en vivo</h4>
+                    <p id="textoDemo" style="font-size: 1.2rem; padding: 10px; background: #eef2f7; border-radius: 6px;">
+                        Este texto cambiara segun el boton que presiones
+                    </p>
+                    <button onclick="cambiarTexto()">Cambiar texto</button>
+                    <button onclick="cambiarColor()">Cambiar color</button>
+                    <button onclick="cambiarEstilo()">Añadir clase</button>
+                    <button onclick="resetearDemo()">Reset</button>
+                </div>
+            </section>
+
+            <!--SeCCION 3: Even Listeners-->
+
+            <section class="card" id="eventos">
+                <header>
+                    <h2>3. Event Listener</h2>
+                </header>
+
+                <div class="content">
+                    <div class="subsection">
+                        <h3>3.1 ¿Que es un evento?</h3>
+                        <p>Un <strong>evento</strong> es una accion que ocurre dentro del navegador: un clic, una tecla de envio de formulario, un scroll, etc. Los <em>listeners</em> son funciones que reaccionan a esos eventos.</p>
+                        <pre><code>elemento. <span class="fn">addEventListner</span> ( <span class="str">clic</span> , () =>{
+                            console. <span class="fn">log</span> ( <span class="str">Hiciste clic</span> )
+                        }) ;</code></pre>
+
+
+                    </div>
+
+                    <div class="subsection">
+                        <h3>3.2 Eventos mas usados</h3>
+                        <div class="demo-grid">
+                            <div class="event-card">
+                                <h4>Clic</h4>
+                                <p>clic del usuario sobre un elemento.</p>
+                            </div>
+                            <div  class="event-card">
+                                <h4>Input</h4>
+                                <p>Se dispara cada vez que el eusuario escribe.</p>
+                            </div>
+                            <div class="event-card">
+                                <h4>Change</h4>
+                                <p>Cuando el valor de un campo cambia y pierde foco.</p>
+                            </div>
+                            <div class="event-card">
+                                <h3>Submit</h3>
+                                <p>Envio de un formulario</p>
+                            </div>
+                            <div class="event-card">
+                                <h4>Keydown/ keyup</h4>
+                                <p>Cuando se presiona o se suelta una tecla.</p>
+                            </div>
+                            <div class="event-card">
+                                <h4>Mouseover/ Mouseot</h4>
+                                <p>Cuando el cursor entra o sale de un elemento.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>3.4 Demo: Computador  con clic</h3>
+                        <div class="demo-box">
+                            <p class="hint">Haz Clic en los botones para modificar el contador.</p>
+                            <div class="counter-display" id="contador">0</div>
+                            <div style="text-align: center;">
+                                <button id="btnMas" class="success">+1</button>
+                                <button id="btnMenos" class="warning">-1</button>
+                                <button id="btnReset" class="outline">Reset</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>3.4 Demo: Entrada de texto en vivo</h3>
+                        <div class="demo-box">
+                            <p class="hint">Escribe en el campo y observa el resultado en tiempo real.</p>
+                            <input type="text" id="inputNombre" placeholder="Escribe tu nombre...">
+                            <div class="output" id="salidaNombre">Aqui veras lo que escribas...</div>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>3.5 Demo: Lista dinamica (Agregar o eliminar)</h3>
+                        <div class="demo-box">
+                                                        <input type="text" id="inputTarea" placeholder="Nueva Tarea ...">
+                            <button id="btnAgregar">Agregar</button>
+
+                        </div>
+                        <ul class="dynamic-list" id="listaTarea">
+                            <!--Los li se generaran dinamicamente-->
+                        </ul>
+                    </div>
+
+                </div>
+            </section>
+
+            <!--Seccion 4: Consola del navegador-->
+
+            <section class="card" id="consola">
+                <header>
+                    <h2>💻 4. La consola del navegador</h2>
+                </header>
+                    <div class="content">
+                        <div class="subsection">
+                            <h3>4.1 ¿Porque usar la consola?</h3>
+                            <p>Es el <strong>Laboratorio</strong> Del desarollador: permite probar codigo din afectar el sitio, inspeccionar variables y detecta errores.</p>
+                            <p>Abre la consola con: </p>
+                            <ul>
+                                <li><strong>F12</strong> o <strong>Crtl + Shift + i</strong> (Windows/Linux)</li>
+                                <li><strong>Cmd + Option + i</strong>(Mac)</li>
+                                <li>Click derecho -> <em>Inspeccionar</em> -> pestaña <em>Console</em>.</li>
+                            </ul>
+                        </div>
+
+                        <div class="subsection">
+                            <h3>Metodos principales de <code>console</code></h3>
+                            <pre><code>console. <span class="fn">log</span> (  <span class="str">Mensaje normal</span>);   
+                            
+                                console. <span class="fn">warn</span> ( console.<span class="str">Advertencia</span>);
+                                console. <span class="fn">error</span> ( console.<span class="str">Error critico</span>);
+                                console. <span class="fn">info</span> ( console.<span class="str">Informacion</span>);
+
+
+                                ( console. <span class="cmt">//Mostrar objetos como tablas</span> )
+                                .console. <span class="fn">table</span> ( [ { <span class="str">Wanda</span>, nota <span class="num">4.5</span> }, 
+                                {nombre: <span class="str">"cosmo</span>, nota: <span class="num">3.8</span> }] )
+                            <span class="cmt">//Medir tiempo</span>
+                            console. <span class="fn">time</span> ( <span class="str">bucle</span> );
+                            <span class="kw">for</span> ( <span class="kw">let</span> i = <span class="num">0</span> i &lt; <span class="num">100</span> i++ {}  )
+                        console. <span class="fn">timeEnd</span> ( <span class="str">bucle</span>)
+                        </code></pre>
+                        </div>
+
+                        <div class="demo-box">
+                            <h4>Demo: enviar mensaje a la consola</h4>
+                            <p class="hint">Presiona boton y luego abre F12 para ver el resultado.</p>
+                            <button onclick="console.log('Mensaje nomal del boton');">Log</button>
+                            <button onclick="console.warn('Advertencia: revisa tu codigo');" class="warning">warn</button>
+                            <button onclick="console.error('Error simulado');">error</button>
+                            <button onclick="console.info('Informacion adicional');" class="outline">info</button>
+                            <button onclick="console.table([{nombre:'Wanda',nota:4.5}, {nombre:'Consmo',nota:3.8}, {nombre:'Timmy',nota:5.0}]);" class="success">table</button>
+
+                            <!--Espejo Visual de la consola-->
+                            <h4 style="margin-top: 1rem;">Espejo visual (para referencia):</h4>
+                            <div class="console-output" id="consolaEspejo">
+                                <div class="line-log">Los mensajes apareceran aqui tambien ...</div>
+                            </div>
+                        </div>
+                    </div>
+            </section>
+<!--Introduccion a Jquery-->
+<section class="card" id="jquery">
+    <header>
+        <h2>5.Introduccion a Jquery</h2>
+    </header>
+
+    <div class="content">
+        <div class="subsection">
+            <h3>5.1 ¿Que es Jquery?</h3>
+            <p>Jquery es una <strong>libreria de Java Script</strong> Creada con el fin de simplificar la manipulacion del DOM (Document Objet Model), el manejo de eventos y peticiones AJAX. Aunque hy existen alternativas modernas (React o VueJS), pero enternder Jquery sigue siendo util por su presencia en proyectos. </p>
+            <p>Su lema: <em>"Write this, do more"</em> (Escribe menos, haz mas).</p>
+        </div>
+
+        <div class="subsection">
+            <h3>5.2 Java Scrip VS JQuery: Comparativa</h3>
+
+
+            <pre><code class="cmt"> //JavaScrip</code></pre>
+
+            <p><strong>Añadir un evento asociado a un click:</strong></p>
+            <pre><code><span class="cmt">//JavaScript puro</span>
+            document. <span class="fn">getElementById</span> ( <span class="str">"btn"</span> ). <span class="fn">addEventListner</span> ( <span class="srt"> "clic"</span>, () =>) 
+            <span class="fn">alert</span> ( <span class="str">"Hola"</span> );
+        
+            <span class="cmt">//JQuery</span>
+            $( <span class="str">"#btn"</span>). <span class="fn">on</span> ( <span class="str">"click"</span>, () =>
+            <span class="fn">alert</span>( <span class="str">"Hola"</span>);
+            );
+        </code></pre>
+        <p><strong>Cambiar el texto de varios elementos:</strong></p>
+        <pre><code><span class="cmt">//JavaScrip puro</span>
+        document.<span class="fn">querySelectorAll</span> ( <span class="str">.item</span>). <span class="fn">forEach</span> (el => el.textoContent = <span class="str">"X"</span> );
+        
+        <span class="cmt">//JQuery</span>
+        $( <span class="str">.item</span>).<span class="fn">text</span>(<span class="str">"X"</span>);
+
+    </code></pre>
+    </div>
+    <div class="demo-box">
+        <h4>Demo: mismo efecto JS puro vs JQuery</h4>
+        <p class="hint">Ambos botones producen el mismo resultado. Pero con sintaxis diferente</p>
+        <div style="display: flex; gap: 10px; flex-wrap: wrep; margin-bottom: 10px;"></div>
+        <button id="btnJS">JavaScript puro</button>
+        <button id="btnJQ" class="success"> con jQuery</button>
+        <button id="btnResetJQ" class="outline">Reset</button>
+    </div>
+    <p id="cajaDemoJQ" style="padding: 15px; background: #eef2f7; border-radius: 0%; text-align: center; font-weight: bold;">
+        has clic en un boton...
+    </p>
+
+        </div>
+    </div>
+        </section>
+        <!--Retos de practica-->
+        
+        <section class="card" id="retos">
+                <header>
+                    <h2>Retos de practica</h2>
+                </header>
+                <div class="content">
+                    <div class="subsection">
+                        <h3>Reto 1 - Termometro</h3>
+                        <p>Crea un input donde el usuario ingrese una temperatura en °C y muestre si es "frio" (&lt; 10), "templado" (10-25) o "caluroso" (&gt; 25).</p>
+                        <div class="demo-box">
+                            <input type="number" id="inputTemp" placeholder="Temperatura en °C">
+                            <button id="btnTemp">Clasificar</button>
+                            <div class="output" id="resultadoTemp">Esperando temperatura...</div>
+                        </div>
+                    </div>
+                    <div class="subsection">
+                        <h3>Reto 2 - Lista con tareas completadas</h3>
+                        <p>Modifica el demo de lista dinamica para que cada tarea tenga un boton que la marque como completada (tachar la tarea).</p>
+                        <p class="hint">Pruébalo en la demo de lista dinámica (sección 3.5): ahora cada tarea tiene un botón "Completar".</p>
+                    </div>
+                    <div class="subsection">
+                        <h3>Reto 3 - Conversor de moneda</h3>
+                        <p>Pide un valor en pesos colombianos y pasalo a dolares.</p>
+                        <div class="demo-box">
+                            <input type="number" id="inputPesos" placeholder="Valor en COP">
+                            <button id="btnConvertir">Convertir</button>
+                            <div class="output" id="resultadoMoneda">Esperando valor...</div>
+                        </div>
+                    </div>
+                    <div class="subsection">
+                        <h3>Reto 4 - Calculadora</h3>
+                        <p>Crea una calculadora con botones para +, -, *, / y dos campos de entrada.</p>
+                        <div class="demo-box">
+                            <input type="number" id="num1" placeholder="Número 1">
+                            <input type="number" id="num2" placeholder="Número 2">
+                            <div style="margin-top: 10px;">
+                                <button class="btn-op" data-op="+">+</button>
+                                <button class="btn-op" data-op="-">−</button>
+                                <button class="btn-op" data-op="*">×</button>
+                                <button class="btn-op" data-op="/">÷</button>
+                            </div>
+                            <div class="output" id="resultadoCalc">Esperando datos...</div>
+                        </div>
+                    </div>
+                    <div class="subsection">
+                        <h3>Reto 5 - Portafolio con jQuery</h3>
+                        <p>Rehacer uno de los retos anteriores usando jQuery en vez de JavaScript.</p>
+                        <div class="demo-box">
+                            <input type="number" id="tempJQ" placeholder="Temperatura en °C">
+                            <button id="btnTempJQ">Clasificar (jQuery)</button>
+                            <div class="output" id="resultadoTempJQ">Esperando temperatura...</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!--Footer <foother>-->
+
+            <footer class="site-footer">
+                <p>Guia de comandos en JavaScrip y JQuery.</p>
+
+                <p>Diseñada con el fin de dar compresion a las tematicas mas relevantes en el uso de JavaScrip puro Y JQuery</p>
+            </footer>
+    </div>
+
+    <script src="JavaScript/script_2.js"></script>
+    
+</body>
+</html>
